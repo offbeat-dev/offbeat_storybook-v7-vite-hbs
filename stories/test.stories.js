@@ -1,4 +1,5 @@
 import template from "../stories/test.hbs";
+import build from "../.storybook/utils/story.js";
 
 export default {
   title: "Button",
@@ -10,6 +11,12 @@ export default {
   },
 };
 
-export const Primary = () => {
-  return template({ text: "Hello " });
-};
+export const Primary = build(template, { text: "maybe" }, "padded");
+
+// export const Primary = build(
+//   template,
+//   {
+//     text: "Hello ",
+//   },
+//   "padded"
+// );

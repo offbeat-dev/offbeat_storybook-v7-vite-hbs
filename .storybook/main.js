@@ -1,6 +1,8 @@
 import { mergeConfig } from "vite";
 import Handlebars from "handlebars";
 import fs from "fs";
+import path from "path";
+import RollupInjectPlugin from "@rollup/plugin-inject";
 
 const jsHandlebars = (userOptions = {}) => {
   return {
@@ -31,7 +33,19 @@ export default {
   framework: "@storybook/html-vite",
   async viteFinal(config) {
     return mergeConfig(config, {
-      plugins: [jsHandlebars()],
+      resolve: {
+        alias: {
+          story: path.resolve(__dirname, "/utils/story.js"),
+        },
+      },
+      commonjsOptions: {
+        transformMixedEsModules: true,
+        exclude: [
+          "node_modules/lodash-es/**",
+          "node_modules/@types/lodash-es/**",
+        ],
+      },
+      plugins: [RollupInjectPlugin({ story: "story" }), jsHandlebars()],
       optimizeDeps: {
         include: [
           "@storybook/addon-essentials",
