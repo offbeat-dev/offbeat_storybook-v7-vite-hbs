@@ -7,3 +7,10 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [
+  (storyFn) => {
+    console.log("PREVIEW.JS -- decorators: ", storyFn);
+    return storyFn();
+  },
+];

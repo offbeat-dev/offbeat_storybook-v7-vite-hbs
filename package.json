@@ -1,7 +1,7 @@
 {
   "name": "offbeat_storybook-vite-hbs",
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
@@ -15,6 +15,7 @@
     "@storybook/testing-library": "^0.0.13",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.0.0-beta.16"
+    "storybook": "^7.0.0-beta.16",
+    "vite-plugin-time-reporter": "^2.1.0"
   }
 }
