@@ -11,11 +11,3 @@ export default {
 };
 
 export const Primary = story.build(template, { text: "maybe" }, "padded");
-
-// export const Primary = build(
-//   template,
-//   {
-//     text: "Hello ",
-//   },
-//   "padded"
-// );
