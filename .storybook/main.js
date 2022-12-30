@@ -12,8 +12,6 @@ export default {
         actions: false,
       },
     },
-    "@storybook-addon-designs",
-    "@storybook/addon-interactions",
   ],
   framework: "@storybook/html-vite",
   async viteFinal(config) {
@@ -23,21 +21,7 @@ export default {
           story: path.resolve(__dirname, "./utils/story.js"),
         },
       },
-      commonjsOptions: {
-        transformMixedEsModules: true,
-        exclude: [
-          "node_modules/lodash-es/**",
-          "node_modules/@types/lodash-es/**",
-        ],
-      },
       plugins: [ViteHandlebars(), RollupInjectPlugin({ story: "story" })],
-      optimizeDeps: {
-        include: [
-          "@storybook/addon-essentials",
-          "@storybook-addon-designs",
-          "@storybook/addon-interactions",
-        ],
-      },
     });
   },
 };
