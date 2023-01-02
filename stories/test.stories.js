@@ -1,4 +1,4 @@
-import template from "../stories/test.hbs";
+import template from "../src/html/modules/test.hbs";
 
 export default {
   title: "Button",
