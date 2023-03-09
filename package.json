@@ -8,14 +8,12 @@
   },
   "devDependencies": {
     "@rollup/plugin-inject": "^5.0.3",
-    "@storybook/addon-essentials": "^7.0.0-beta.16",
-    "@storybook/html-vite": "^7.0.0-alpha.58",
-    "@storybook/testing-library": "^0.0.13",
+    "@storybook/addon-essentials": "^7.0.0-beta.62",
+    "@storybook/html-vite": "^7.0.0-beta.62",
+    "@storybook/testing-library": "^0.0.14-next.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "storybook": "^7.0.0-beta.16"
-  },
-  "dependencies": {
-    "async": "^3.2.4"
+    "storybook": "^7.0.0-beta.62",
+    "vite": "^4.1.0"
   }
 }

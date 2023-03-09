@@ -370,14 +370,21 @@ const ViteHandlebars = (options = {}) => {
     enforce: "pre",
     transform(code, id) {
       if (/\.(hbs)$/.test(id)) {
+        console.log("Compiling Handlebars template: " + id);
         const buf = fs.readFileSync(id).toString(); //read contents of .hbs file
         const templateFunction = Handlebars.precompile(buf); //precompile the template reduces runtime overhead
-        init(code, id, options);
+        const partialFunction = Handlebars.precompile(
+          "<strong>{{prop}}</strong>"
+        ); //compile the template to a function
 
         let compiled = ""; //create a string to hold the compiled template
-        compiled += "import HandlebarsCompiler from 'handlebars/runtime';\n";
+        compiled += "import Handlebars from 'handlebars/runtime';\n";
         compiled +=
-          "export default HandlebarsCompiler['default'].template(" +
+          "Handlebars.registerPartial('testpartial', Handlebars.template(" +
+          partialFunction.toString() +
+          "));\n";
+        compiled +=
+          "export default Handlebars.template(" +
           templateFunction.toString() +
           ");\n";
 
